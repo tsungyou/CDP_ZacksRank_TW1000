@@ -1,0 +1,17 @@
+SciPy
+pandas
+numpy
+matplotlib
+yfinance
+datetime
+cvxpy
+backtesting
+pandas_ta
+tqdm
+plotly
+nbformat
+seaborn
+pandas-datareader
+selenium
+backtrader
+js2py
