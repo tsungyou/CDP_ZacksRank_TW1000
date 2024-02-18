@@ -14,4 +14,4 @@ seaborn
 pandas-datareader
 selenium
 backtrader
-js2py
+js2pypolygon-api-client
