@@ -1,3 +1,12 @@
+from datetime import datetime, timedelta
+
+datetime_dict = {
+    "1": (datetime.now() - timedelta(days=1)).strftime("%Y-%m-%d"),
+    "2": (datetime.now() - timedelta(days=2)).strftime("%Y-%m-%d"),
+    "3": (datetime.now() - timedelta(days=3)).strftime("%Y-%m-%d"),
+    "4": (datetime.now() - timedelta(days=4)).strftime("%Y-%m-%d"),
+    "5": (datetime.now() - timedelta(days=5)).strftime("%Y-%m-%d")
+}
 sample = {
     "1":"Strong Buy", 
     "2":"Buy",
