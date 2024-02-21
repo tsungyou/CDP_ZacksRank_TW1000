@@ -1,0 +1,4 @@
+flask
+Ta-Lib
+pandas
+yfinance

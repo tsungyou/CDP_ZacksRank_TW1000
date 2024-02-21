@@ -37,7 +37,7 @@ const closed_portfolio = database_route + 'zackRanks_closed.json';
 // updateFile(yuanta_json);
 // //  =================================================================
 
-
+console.log(":aaaa");
 // const ib_list = ["C", "CCEP", "DSGX", "GGAL", "IBKR", "MU", "NDAQ", "NMIH", "SISI", "WFC"];
 // const yuanta_list = ["SCHW", "XLB", "BMY", "NFLX", "XRX"];
 // let array = [...ib_list, ...yuanta_list];
