@@ -7,12 +7,18 @@ datetime_dict = {
     "4": (datetime.now() - timedelta(days=4)).strftime("%Y-%m-%d"),
     "5": (datetime.now() - timedelta(days=5)).strftime("%Y-%m-%d")
 }
+
+direction = {
+    "1": "sell",
+    "2": "buy" 
+}
 sample = {
     "1":"Strong Buy", 
     "2":"Buy",
     "3":"Hold",
     "4":"Sell",
-    "5":"Strong Sell"
+    "5":"Strong Sell",
+    "0": "All"
 }
 
 route = "../Database/"

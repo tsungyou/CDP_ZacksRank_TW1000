@@ -12,7 +12,7 @@
         <form>
             <select name="pattern">
                 {% for pattern in patterns %}
-                    <option value="{{ pattern }}">{{ patterns[pattern]}}</option>
+                    <option value="{{ pattern }}" {% if pattern == current_pattern %}selected="selected"{% endif %}>{{ patterns[pattern]}}</option>
                 {% endfor %}
             </select>
 
@@ -21,14 +21,33 @@
                     <option value="{{ datetime }}">{{ datetime_dict[datetime]}}</option>
                 {% endfor %}
             </select>
- 
+            <select name="direction">
+                {% for dir in direction %}
+                    <option value="{{ dir }}">{{ direction[dir]}}</option>
+                {% endfor %}
+            </select>
             <input type="submit" value="submit"> 
             <!--value: string shown on the button-->
         </form>
+
+        <table>
+            <tr>
+                <th> 
+                    Symbol
+                </th>
+            </tr>
         {% for stock in stocks %}
-            {{ stock }}
         
+            <tr>
+                <td>{{ stock }}</td>
+                <td>{{ stocks[stock]}}</td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <img src="https://finviz.com/chart.ashx?t={{ stock }}&ty=c&ta=1&p=h&s=l"/>
+                </td>
+            </tr>
         {% endfor %}
-        {{ patterns }}
+        </table>
     </body>
 </html>
