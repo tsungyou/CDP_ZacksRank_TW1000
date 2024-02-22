@@ -63,9 +63,10 @@ def snapshot():
 def getSymbolInform():
     matplotlib.use("agg")
     symbol = request.args.get("symbol", "NVDA")
-    df = pd.read_csv(f"../Database/Tickers/NVDA.csv")
+    df = pd.read_csv(f"../Database/Tickers/{symbol}.csv")
     plt.plot(df['Close'])
     return render_template("singleStock.html", name = plt.show())
+
 
 if __name__ == "__main__":
     app.run(debug=True)
