@@ -2,6 +2,8 @@ from flask import Flask, render_template, request
 import yfinance as yf
 import json
 import os
+import matplotlib.pyplot as plt
+import matplotlib
 import pandas as pd
 from datetime import datetime, timedelta
 from config import sample, filemap, datetime_dict, direction
@@ -56,6 +58,14 @@ def snapshot():
         "message": "localhost:5000",
         "status": "200"
     }
+
+@app.route("/symbol")
+def getSymbolInform():
+    matplotlib.use("agg")
+    symbol = request.args.get("symbol", "NVDA")
+    df = pd.read_csv(f"../Database/Tickers/NVDA.csv")
+    plt.plot(df['Close'])
+    return render_template("singleStock.html", name = plt.show())
 
 if __name__ == "__main__":
     app.run(debug=True)
