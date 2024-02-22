@@ -10,6 +10,11 @@
         <h1>Stock Screener for WPR_2MA</h1>
         
         <form>
+            <select name="database">
+                    <option value="1"> Portfolio </option>
+                    <option value="2"> Daily Filteration </option>
+                    <option value="3"> Undefined </option>
+                </select>
             <select name="pattern">
                 {% for pattern in patterns %}
                     <option value="{{ pattern }}" {% if pattern == current_pattern %}selected="selected"{% endif %}>{{ patterns[pattern]}}</option>
@@ -44,7 +49,7 @@
             </tr>
             <tr>
                 <td colspan="3">
-                    <img src="https://finviz.com/chart.ashx?t={{ stock }}&ty=c&ta=1&p=h&s=l"/>
+                    <img src="https://finviz.com/chart.ashx?t={{ stock }}&ty=c&ta=1&p=d&s=l"/>
                 </td>
             </tr>
         {% endfor %}

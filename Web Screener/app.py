@@ -12,16 +12,28 @@ def hello_world():
     pattern = request.args.get("pattern", "1")
     dat = request.args.get("datetime", "1")
     direct = request.args.get("direction", "2")
+    database_type = request.args.get("database", "portfolio")
     data = {}
-    with open("../Database/signals.json", "r") as f:
-        python_dict = json.load(f)
-        day_dict = python_dict[datetime_dict[dat]][direction[direct]]
-    if str(pattern) == "0":
-        data = day_dict
-    for key, val in day_dict.items():
-        if str(val) == str(pattern):
-            data[key] = pattern
-    data = dict(sorted(data.items(), key=lambda item: item[1]))
+    if database_type == "1":
+        with open("../Database/zackRanks_portfolio.json", "r") as f:
+            python_dict = json.load(f)
+            for i in list(python_dict.keys()):
+                data[i] = list(python_dict[i].values())
+        print(data)
+    elif database_type in ["2", "3"]:
+        
+        with open("../Database/signals.json", "r") as f:
+            python_dict = json.load(f)
+            day_dict = python_dict[datetime_dict[dat]][direction[direct]]
+        if str(pattern) == "0":
+            data = day_dict
+        for key, val in day_dict.items():
+            if str(val) == str(pattern):
+                data[key] = pattern
+        data = dict(sorted(data.items(), key=lambda item: item[1]))
+        if database_type == "3":
+            pass
+
     # for key, val in day_dict.items():
     #     if str(val) == str(pattern):
     #         data[key] = val
