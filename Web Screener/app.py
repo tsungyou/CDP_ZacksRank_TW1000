@@ -65,7 +65,10 @@ def getSymbolInform():
     symbol = request.args.get("symbol", "NVDA")
     df = pd.read_csv(f"../Database/Tickers/{symbol}.csv")
     plt.plot(df['Close'])
-    return render_template("singleStock.html", name = plt.show())
+    return render_template("singleStock.html")
+@app.route("/strat/wpr")
+def strategy_wpr_2ma():
+    return render_template("singleStock.html")
 
 
 if __name__ == "__main__":

@@ -1,16 +1,16 @@
 from datetime import datetime, timedelta
+import json
 
-datetime_dict = {
-    "1": (datetime.now() - timedelta(days=1)).strftime("%Y-%m-%d"),
-    "2": (datetime.now() - timedelta(days=2)).strftime("%Y-%m-%d"),
-    "3": (datetime.now() - timedelta(days=3)).strftime("%Y-%m-%d"),
-    "4": (datetime.now() - timedelta(days=4)).strftime("%Y-%m-%d"),
-    "5": (datetime.now() - timedelta(days=5)).strftime("%Y-%m-%d")
-}
+with open("../Database/signals.json") as f:
+    a = json.load(f)
+    time_keys = a.keys()
+datetime_dict = {}
+for i, times in enumerate(list(time_keys)[::-1]):
+    datetime_dict[str(i+1)] = times
 
 direction = {
-    "1": "sell",
-    "2": "buy" 
+    "2": "buy",
+    "1": "sell" 
 }
 sample = {
     "1":"Strong Buy", 
