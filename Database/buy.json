@@ -1,116 +1,5 @@
 {
-    "zack1": {
-        "2024-02-13": []
-    },
-    "zack2": {
-        "2024-02-13": []
-    },
-    "Yuanta": {
-        "2024-02-07": [],
-        "2024-02-08": [
-            "GPS"
-        ],
-        "2024-02-12": [
-            "T",
-            "VZ"
-        ],
-        "2024-02-13": [],
-        "2024-02-14": [
-            "NFLX",
-            "XRX"
-        ],
-        "2024-02-15": [],
-        "2024-02-21": [],
-        "2024-02-22": [
-            "NVDA"
-        ],
-        "2024-02-23": []
-    },
     "NASDAQ": {
-        "2024-02-07": [
-            "MRVL",
-            "MU",
-            "OPK",
-            "ADI",
-            "ACLS",
-            "CCCS",
-            "BGC",
-            "STX",
-            "VRTX",
-            "NDAQ",
-            "GDRX",
-            "OKTA",
-            "MKSI",
-            "VRRM",
-            "FIVN",
-            "SYNA",
-            "PTC",
-            "BCEL",
-            "TRMD",
-            "STEP"
-        ],
-        "2024-02-08": [
-            "SLM",
-            "HRTX",
-            "HA",
-            "HUMA",
-            "INTA",
-            "WRAP",
-            "IHRT",
-            "POWW",
-            "SBGI",
-            "MXCT",
-            "IMTX",
-            "ACTG",
-            "VECO",
-            "MMSI",
-            "FFIV",
-            "AMKR",
-            "ACRS",
-            "ATAI",
-            "SHOO",
-            "NXST",
-            "STGW",
-            "XMTR",
-            "AMSC",
-            "ARHS",
-            "UPBD",
-            "JRVR"
-        ],
-        "2024-02-09": [
-            "LITE",
-            "CVKD",
-            "CNXA",
-            "CCEP",
-            "GGAL",
-            "ORLY",
-            "EXLS",
-            "APLT",
-            "OTEX",
-            "NMIH",
-            "ALXO",
-            "CLNN",
-            "BFRG",
-            "KROS",
-            "SISI",
-            "IMPP"
-        ],
-        "2024-02-12": [
-            "WDC",
-            "ILMN",
-            "TROW",
-            "IMAB",
-            "SGMT",
-            "ZJYL",
-            "CYTK",
-            "TMC",
-            "SHCR",
-            "LBPH",
-            "TRMD",
-            "RWAY",
-            "HITI",
-            "HMST"
-        ],
         "2024-02-14": [],
         "2024-02-15": [
             "PANL"
@@ -120,7 +9,13 @@
         "2024-02-22": [
             "NVDA",
             "CDNS",
-            "MANH"  
+            "MANH"
+        ],
+        "2024-02-23": [
+            "RPD"
+        ],
+        "2024-02-24": [
+            "RPD"
         ]
     },
     "NYSE": {
@@ -150,28 +45,5 @@
             "CDNS"
         ],
         "2024-02-23": []
-    },
-    "Deleted from SP500": {
-        "2024-02-07": [
-            "MU",
-            "CBOE",
-            "STX"
-        ],
-        "2024-02-08": [
-            "FFIV"
-        ],
-        "2024-02-09": [
-            "CAH"
-        ],
-        "2024-02-12": [
-            "VZ",
-            "T",
-            "MTD",
-            "TROW",
-            "ILMN",
-            "PHM",
-            "WDC",
-            "SJM"
-        ]
     }
 }

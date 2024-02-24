@@ -1,17 +1,4 @@
 {
-    "zack1": {
-        "2024-02-13": [
-            "OKE"
-        ]
-    },
-    "zack2": {
-        "2024-02-13": [
-            "BLK",
-            "NOC",
-            "CE",
-            "BEN"
-        ]
-    },
     "Yuanta": {
         "2024-02-07": [],
         "2024-02-08": [],
@@ -30,84 +17,6 @@
         "2024-02-23": []
     },
     "NASDAQ": {
-        "2024-02-07": [
-            "CLSK",
-            "WW",
-            "MSS",
-            "TERN",
-            "OPGN",
-            "ABEO",
-            "EMBC"
-        ],
-        "2024-02-08": [
-            "BZ",
-            "LAZR",
-            "ESPR",
-            "MOMO",
-            "IMAB",
-            "TPST",
-            "LQR",
-            "NOTV",
-            "VIOT",
-            "HALO",
-            "RLYB",
-            "ALEC",
-            "OPRA",
-            "HCTI"
-        ],
-        "2024-02-09": [
-            "ROMA",
-            "ROIV",
-            "WW",
-            "RNLX",
-            "MNST",
-            "EJH",
-            "ILAG",
-            "LILM",
-            "WB",
-            "WFRD",
-            "PYCR",
-            "WBUY",
-            "DTIL",
-            "TERN",
-            "SFWL",
-            "ANSS",
-            "EMBC"
-        ],
-        "2024-02-12": [
-            "TSLA",
-            "RIVN",
-            "ACB",
-            "AUR",
-            "LI",
-            "OPK",
-            "NVTS",
-            "SBRA",
-            "MVIS",
-            "MVST",
-            "BCRX",
-            "CCCS",
-            "UPWK",
-            "MTTR",
-            "OKTA",
-            "TALK",
-            "AVPT",
-            "RLYB",
-            "FIVN",
-            "BL",
-            "PTLO",
-            "TSHA",
-            "OPGN",
-            "ERAS",
-            "ODD",
-            "DCPH",
-            "CLDX",
-            "DUOL",
-            "NNOX",
-            "BECN",
-            "SOPA",
-            "CMPX"
-        ],
         "2024-02-14": [],
         "2024-02-15": [],
         "2024-02-16": [
@@ -124,42 +33,12 @@
             "NFE",
             "SNBR",
             "CMTL"
+        ],
+        "2024-02-23": [
+            "TXN"
         ]
     },
     "NYSE": {
-        "2024-02-08": [
-            "ITUB",
-            "CVS",
-            "GPS",
-            "HOG",
-            "SID",
-            "PEG",
-            "HLN",
-            "SUZ",
-            "HSBC",
-            "SEMR",
-            "CPA",
-            "NCZ"
-        ],
-        "2024-02-09": [
-            "AGL",
-            "OI",
-            "BRX",
-            "CRC",
-            "NFG",
-            "WHD",
-            "PX",
-            "JLL"
-        ],
-        "2024-02-12": [
-            "STM",
-            "PLD",
-            "LLAP",
-            "ALTG",
-            "BBY",
-            "SMAR",
-            "PRO"
-        ],
         "2024-02-14": [],
         "2024-02-15": [],
         "2024-02-21": [
@@ -201,6 +80,8 @@
         ],
         "2024-02-21": [],
         "2024-02-22": [],
-        "2024-02-23": []
+        "2024-02-23": [
+            "TXN"
+        ]
     }
 }
