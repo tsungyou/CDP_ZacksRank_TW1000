@@ -15,3 +15,5 @@ pandas-datareader
 selenium
 backtrader
 js2pypolygon-api-client
+scikit-learn
+xgboost
