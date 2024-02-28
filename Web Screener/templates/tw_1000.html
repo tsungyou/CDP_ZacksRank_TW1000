@@ -1,0 +1,41 @@
+<html>
+    <header>
+        <style>
+            body {
+                font-family: arial; margin: 20px;
+            }
+        </style>
+    </header>
+    <body>
+        <h1>Stock Screener for WPR_2MA</h1>
+        
+        <form>
+            <select name="'consecutive">
+                <option value="1">1-5 weeks</option>
+                <option value="2">6-10 weeks</option>
+                <option value="3">>10 weeks</option>
+            </select>
+            <input type="submit" value="submit"> 
+        </form>
+        
+        <table>
+            <tr>
+                <th> 
+                    Symbol
+                </th>
+            </tr>
+        {% for key, value in nums.items() %}
+        
+            <tr>
+                <td>{{ key }}</td>
+                <td>{{ value }}</td>
+            </tr>
+            <!-- <tr>
+                <td colspan="3">
+                    <img src="https://finviz.com/chart.ashx?t={{ key }}&ty=c&ta=1&p=d&s=l"/>
+                </td>
+            </tr> -->
+        {% endfor %}
+        </table>
+    </body>
+</html>

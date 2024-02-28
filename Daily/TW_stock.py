@@ -97,14 +97,38 @@ def insert_db_new():
     return None
 
 def insert_db_update(ticker=default):
+    a = 14
+    b = 28
     with open(db_location, "r", encoding="utf-8") as f:
         dicts = json.load(f)
 
     with tqdm.tqdm(total=len(list(dicts.keys()))) as pbar: 
         for ticker in list(dicts.keys()):
             try:
+                df = pd.DataFrame(dicts[ticker]).T
                 dates, values, percenta = get_1000_data(ticker)
-                dicts[ticker][dates[-1].strftime("%Y-%m-%d")] = {"Close":values[-1], "Percent":percenta[-1]}
+                df['MA14_P'] = df['Percent'].rolling(window=a).mean()
+                df['MA28_P'] = df['Percent'].rolling(window=b).mean()
+                df['MA14_C'] = df['Close'].rolling(window=a).mean()
+                df['MA28_C'] = df['Close'].rolling(window=b).mean()
+                P14 = list(df["MA14_P"])[-1]
+                P28 = list(df["MA28_P"])[-1]
+                C14 = list(df["MA14_C"])[-1]
+                C28 = list(df["MA28_C"])[-1]
+                
+                if P14 > P28 and C14 > C28:
+                    signal = 1
+                else:
+                    signal = 0
+                dicts[ticker][dates[-1].strftime("%Y-%m-%d")] = {
+                    "Close":values[-1], 
+                    "Percent":percenta[-1],
+                    "MA14_P":list(df["MA14_P"])[-1],
+                    "MA28_P":list(df["MA28_P"])[-1],
+                    "MA14_C":list(df["MA14_C"])[-1],
+                    "MA28_P":list(df["MA28_C"])[-1],
+                    "Signal":signal
+                    }
             except:
                 print(ticker, "failed")
             pbar.update(1)
@@ -115,7 +139,7 @@ def insert_db_update(ticker=default):
     return None
 
 def main():
-    insert_db_new()
+    insert_db_update()
     # insert_db_update()
 if __name__ == '__main__':
     main()

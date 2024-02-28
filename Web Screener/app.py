@@ -54,6 +54,56 @@ def hello_world():
     #         df = pd.read_csv(route + "/" + filename)
     #         # print(df.head())
     # return render_template("index.html", patterns=sample, datetime_dict = datetime_dict, stocks=data)
+@app.route('/tw')
+def get_1000_tw():
+    
+    consecutive = request.args.get("consecutive", "1")
+    with open("../Database/TW/TW50.json", "r") as f:
+        python_dict = json.load(f)
+    list_ = ["1513", "2330", "3037"]
+    list_ = list(python_dict.keys())
+    print(list_)
+    nums = {}
+    filtered_pairs = {}
+    for stock in list_:
+        date = []
+        signal = []
+        stock_dict = python_dict[stock]
+        for key, value in stock_dict.items():
+            date.append(key)
+            signal.append(value['Signal'])
+        
+        index = next((i for i, x in enumerate(signal[::-1]) if x != 1), None)
+        nums[stock] = index
+    if consecutive == "1":
+        for key, value in nums.items():
+            if value != None:
+                if 6 > value > 0:
+
+                    filtered_pairs[key] = value
+                else:
+                    pass
+        filtered_pairs = dict(sorted(filtered_pairs.items(), key=lambda item: item[1]))
+        print(filtered_pairs)
+    elif consecutive == "2":
+        for key, value in nums.items():
+            if value != None:
+                if 10 > value >= 6:
+                    filtered_pairs[key] = value
+                else:
+                    pass
+        filtered_pairs = dict(sorted(filtered_pairs.items(), key=lambda item: item[1]))
+        print(filtered_pairs)
+    elif consecutive == "3":
+        for key, value in nums.items():
+            if value != None:
+                if value > 10:
+                    filtered_pairs[key] = value
+                else:
+                    pass
+        filtered_pairs = dict(sorted(filtered_pairs.items(), key=lambda item: item[1]))
+        print(filtered_pairs)
+    return render_template("tw_1000.html", consecutive=consecutive, nums=filtered_pairs)
 
 @app.route('/snapshot')
 def snapshot():
