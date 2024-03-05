@@ -37,8 +37,15 @@
         <table>
             {% for key, value in change_daily.items() %}
             <tr>
+              <th>||||||</th>
               <th>{{key}}</th>
-              <th>{{value}}</th> 
+              <th>||</th>
+              <th>{{value["now"]}}</th> 
+              <th>||</th>
+              <th>{{value["4w"]}}</th>
+              <th>||</th>
+              <th>{{value["12w"]}}</th>
+              <th>||</th>
             </tr>
             {% endfor %}
         </table>

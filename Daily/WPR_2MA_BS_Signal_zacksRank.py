@@ -157,29 +157,31 @@ def mains_signals_update(loops = ["NYSE", "Yuanta", "NASDAQ", "SP500"], updateDa
             dict_res = {}
             print(len(q))
             for ticker in q:
-                command = "zacks-api " + ticker
-                result = subprocess.check_output(command, shell=True)
-                dict = eval(result.decode(("utf-8"))) 
-                dict_res[ticker] = dict['zacksRank']
-            if check == 1:
-                sell = [ticker for ticker in list(dict_res.keys()) if dict_res[ticker] == "4"]
-                strong_sell = [ticker for ticker in list(dict_res.keys()) if dict_res[ticker] == "5"]
-                print("Strong Sell:", strong_sell)
-                print("Sell: ", sell)
-                res_sell = strong_sell #+ sell
-                sell_of_the_day += strong_sell
-                all_signals_sell = {**all_signals_sell, **dict_res}
-            if check == 2:
-                strong_buy = [ticker for ticker in list(dict_res.keys()) if dict_res[ticker] == "1"]
-                buy = [ticker for ticker in list(dict_res.keys()) if dict_res[ticker] == "2"]
-                hold_but_signal = [ticker for ticker in list(dict_res.keys()) if dict_res[ticker] == "3"]
-                print("Strong Buy:", strong_buy)
-                print("Buy: ", buy)
-                res_buy = strong_buy #+ buy
-                buy_of_the_day += strong_buy
-                all_signals_buy = {**all_signals_buy, **dict_res}
+                try:
+                    command = "zacks-api " + ticker
+                    result = subprocess.check_output(command, shell=True)
+                    dict = eval(result.decode(("utf-8"))) 
+                    dict_res[ticker] = dict['zacksRank']
+                    if check == 1:
+                        sell = [ticker for ticker in list(dict_res.keys()) if dict_res[ticker] == "4"]
+                        strong_sell = [ticker for ticker in list(dict_res.keys()) if dict_res[ticker] == "5"]
+                        print("Strong Sell:", strong_sell)
+                        print("Sell: ", sell)
+                        res_sell = strong_sell #+ sell
+                        sell_of_the_day += strong_sell
+                        all_signals_sell = {**all_signals_sell, **dict_res}
+                    if check == 2:
+                        strong_buy = [ticker for ticker in list(dict_res.keys()) if dict_res[ticker] == "1"]
+                        buy = [ticker for ticker in list(dict_res.keys()) if dict_res[ticker] == "2"]
+                        hold_but_signal = [ticker for ticker in list(dict_res.keys()) if dict_res[ticker] == "3"]
+                        print("Strong Buy:", strong_buy)
+                        print("Buy: ", buy)
+                        res_buy = strong_buy #+ buy
+                        buy_of_the_day += strong_buy
+                        all_signals_buy = {**all_signals_buy, **dict_res}
             # print(json.dumps(dict_res, indent=4))
-
+                except:
+                    print(ticker, "passed")
             print("=============")
 
         if updateDatabase:
@@ -215,8 +217,7 @@ def mains_signals_update(loops = ["NYSE", "Yuanta", "NASDAQ", "SP500"], updateDa
 
 
 if __name__ == "__main__":
-    loops = ["SP500", "NYSE", "NASDAQ", "portfolio"]
+    loops = ["SP500", "NYSE", "NASDAQ"]
     mains(today=0, loops=loops)
-    loops = ["NASDAQ", "NYSE", "SP500"]
     updateDatabase = True
     mains_signals_update(updateDatabase=updateDatabase, loops=loops)

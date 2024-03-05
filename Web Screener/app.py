@@ -38,9 +38,12 @@ def hello_world():
         if database_type == "3":
             pass
         for ticker in data:
-            a = yf.download(ticker, start=datetime.now()-timedelta(days=5), progress=False)
-            percentage = f"{np.round((a['Close'][-1] - a['Close'][-2])/a['Close'][-2]*100, 2)}%"
-            change_daily[ticker] = percentage
+            a = yf.download(ticker, start=datetime.now()-timedelta(days=100), progress=False)
+            close = list(a['Close'])
+            percentage = f"{np.round((close[-1] - close[-2])/close[-2]*100, 2)}%"
+            four_week_p = f"{np.round((close[-1] - close[-21])/close[-21]*100, 2)}%"
+            twelve_week_p = f"{np.round((close[-1] - close[-61])/close[-61]*100, 2)}%"
+            change_daily[ticker] = {"now":percentage, "4w":four_week_p, "12w":twelve_week_p}
     # for key, val in day_dict.items():
     #     if str(val) == str(pattern):
     #         data[key] = val
