@@ -14,8 +14,6 @@ filemap = {
     "NASDAQ": route + '../Database/zackRanks_NASDAQ.json', # small:1255; mid:330; large:72
     "SP500" : route + "../Database/zackRanks_SP500.json", # small: 1352
    "Yuanta": route + "zackRanks_yuanta.json",
-   "buy": route + "buy.json",
-   "sell": route + "sell.json",
    "portfolio": route + "zackRanks_portfolio.json"
 }
 
@@ -47,18 +45,8 @@ def mains(today=0, loops = ["NYSE", "NASDAQ", "SP500"]):
 
         with open(filemap[k], 'w') as f:
             json.dump(python_dict, f, indent=4)
-# Daily Looping FOR SIGNALS.JS and buy.json and sell.json
 
-route = "../Database/"
-filemap = {
-    "NYSE"  : route + "../Database/zackRanks_NYSE.json", # 1352
-    "NASDAQ": route + '../Database/zackRanks_NASDAQ.json', # small:1255; mid:330; large:72
-    "SP500" : route + "../Database/zackRanks_SP500.json", # small: 1352
-   "Yuanta": route + "zackRanks_yuanta.json",
-   "buy": route + "buy.json",
-   "sell": route + "sell.json",
-   "portfolio": route + "zackRanks_portfolio.json"
-}
+# Daily Looping FOR SIGNALS.JS
 def get_tickers(file="SP500"):
     dict = pd.read_csv(filemap[file], header=None)
     dict = dict.iloc[:, 0]
@@ -104,8 +92,7 @@ def check_WPR_2MA_without_DB(ticker, test=False, period_long_ma=28, period_short
         print("slow: ", [long3, long2, long1, long0])
     # current signal
     if((wpr0 < upb) and (wpr1 > upb) and bear_market):
-        # print(ticker, "cross above"):
-            # sell signal
+        # sell signal
         return 1
     elif ((wpr0 > lob) and (wpr1 < lob)) and bull_market:
         # buy signal
@@ -121,7 +108,7 @@ def check_WPR_2MA_without_DB(ticker, test=False, period_long_ma=28, period_short
     else:
         return 0
 
-def mains_signals_update(loops = ["NYSE", "Yuanta", "NASDAQ", "SP500"], updateDatabase = False):
+def mains_signals_update(loops = ["NYSE", "NASDAQ", "SP500"]):
     sell_of_the_day = []
     buy_of_the_day = []
     all_signals_buy = {}
@@ -165,18 +152,12 @@ def mains_signals_update(loops = ["NYSE", "Yuanta", "NASDAQ", "SP500"], updateDa
                     if check == 1:
                         sell = [ticker for ticker in list(dict_res.keys()) if dict_res[ticker] == "4"]
                         strong_sell = [ticker for ticker in list(dict_res.keys()) if dict_res[ticker] == "5"]
-                        print("Strong Sell:", strong_sell)
-                        print("Sell: ", sell)
-                        res_sell = strong_sell #+ sell
                         sell_of_the_day += strong_sell
                         all_signals_sell = {**all_signals_sell, **dict_res}
                     if check == 2:
                         strong_buy = [ticker for ticker in list(dict_res.keys()) if dict_res[ticker] == "1"]
                         buy = [ticker for ticker in list(dict_res.keys()) if dict_res[ticker] == "2"]
                         hold_but_signal = [ticker for ticker in list(dict_res.keys()) if dict_res[ticker] == "3"]
-                        print("Strong Buy:", strong_buy)
-                        print("Buy: ", buy)
-                        res_buy = strong_buy #+ buy
                         buy_of_the_day += strong_buy
                         all_signals_buy = {**all_signals_buy, **dict_res}
             # print(json.dumps(dict_res, indent=4))
@@ -184,23 +165,9 @@ def mains_signals_update(loops = ["NYSE", "Yuanta", "NASDAQ", "SP500"], updateDa
                     print(ticker, "passed")
             print("=============")
 
-        if updateDatabase:
-            time = (datetime.datetime.now() - datetime.timedelta(days=1)).strftime("%Y-%m-%d")
-            with open(filemap['buy'], 'r') as f:
-                python_dict = json.load(f)
-            
-            python_dict[k][time] = res_buy
+    time = (datetime.datetime.now() - datetime.timedelta(days=1)).strftime("%Y-%m-%d")
 
-            with open(filemap['buy'], 'w') as f:
-                json.dump(python_dict, f, indent=4)
 
-            with open(filemap['sell'], 'r') as f:
-                python_dict_sell = json.load(f)
-            python_dict_sell[k][time] = res_sell
-
-            with open(filemap['sell'], 'w') as f:
-                json.dump(python_dict_sell, f, indent=4)
-    
     with open("../Database/signals.json", "r") as f:
         ks = json.load(f)
     ks[time] = {"buy": all_signals_buy, "sell": all_signals_sell} 
@@ -219,5 +186,4 @@ def mains_signals_update(loops = ["NYSE", "Yuanta", "NASDAQ", "SP500"], updateDa
 if __name__ == "__main__":
     loops = ["SP500", "NYSE", "NASDAQ"]
     mains(today=0, loops=loops)
-    updateDatabase = True
-    mains_signals_update(updateDatabase=updateDatabase, loops=loops)
+    mains_signals_update(loops=loops)
