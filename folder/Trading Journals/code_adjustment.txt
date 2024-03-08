@@ -1,6 +1,0 @@
-2024-02-08(US stock timezone):
-    Problematic: PEG, SPG, PLD, EPSN, NCLH, SWKS, VLTO, FANG, PAYX, EOG, SBUX, BDX, DCPH, CXAI, CIGI => Solved
-    Notes: 2024-02-08 清理code(understanding of pd.ewm, 排除兩個MA過近的信號)
-    todo: try to record all the possible signal of each day and fronttest them to check if the strategy actually work
-        想法: 過了幾天後，應該不會出現需要紀錄的3.5, 4 signals => 分兩個 dictionary 紀錄 signal = 1 and signal = 2 的股票
-2024-02-09

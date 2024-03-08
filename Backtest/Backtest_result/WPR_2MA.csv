@@ -1,3 +1,0 @@
-strategy_name, instrument, outcome, best_instrument
-WPR_2MA, TOP 100 of SP500, {'average_win_rate': 38.003908036408035 'average_return': 16.85940118061561 'annual_return': 2.750193398616004}, ["NFLX" "AMAT" "GOOG" "AVGO" "AMAT"]
-WPR_2MA, TOP 200 of SP500, {'average_win_rate': 35.5172131789779 'average_return': 11.534032792689507 'annual_return': 1.6821587801829136}, ['MPC' 'URI' 'MCK' 'CPRT' 'SNPS']
