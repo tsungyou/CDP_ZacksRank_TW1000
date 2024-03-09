@@ -5,10 +5,19 @@
 This is a project used as a stock screener for us stocks
 ### Web Screener
 Filter based on WPR_2MA strategy, further classified as zacksRank 1 to 5(Strong buy - buy - hold - sell - Strong Sell) and Date of the signal
+Using javascrpit zacps-api + Windows Task manager to scrape zackRank everyday
 * Usage
   ```sh
   cd '.\Web Screener\'
   python app.py
+  ```
+
+### CDP for us stock(2024-03-10 Update)
+Revised CDP strategy for US stock
+* Usage
+  ```sh
+  cd '.\Daily\'
+  CDP_tech_test.ipynb
   ```
 
 ### Daily
