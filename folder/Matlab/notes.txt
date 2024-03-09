@@ -1,4 +1,0 @@
-truncated fourier series: a0 + sum(sin) + sum(cos)
-
-first order fourier series: sin + cos
-
