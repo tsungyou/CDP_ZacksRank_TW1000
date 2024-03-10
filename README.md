@@ -2,7 +2,17 @@
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is a project used as a stock screener for us stocks
+fourier Transformation: Use fourier Transformation、trig approximation and Quinn and Fernandes algorithm to predict stock price
+
+### Fourier Transformation
+Use fourier Transformation and trig approximation to predict stock price/direction
+* Usage
+  ```sh
+  cd '.\Daily\'
+  FFT_trigfit_con.py
+  ```
+
+
 ### Web Screener
 Filter based on WPR_2MA strategy, further classified as zacksRank 1 to 5(Strong buy - buy - hold - sell - Strong Sell) and Date of the signal
 Using javascrpit zacps-api + Windows Task manager to scrape zackRank everyday
@@ -25,13 +35,6 @@ Daily update of zacksRank rank base on zacks-api, which is located at Database/s
 * Usage
   ```sh
   cd '.\Database\'
-  ```
-### Fourier Transformation(in progress)
-Use fourier Transformation and trig approximation to predict stock price/direction
-* Usage
-  ```sh
-  cd '.\Daily\'
-  FFT_trigfit_con.py
   ```
 
 ### 台股大戶指標(in progress)
