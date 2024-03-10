@@ -9,7 +9,7 @@ Use fourier Transformation and trig approximation to predict stock price/directi
 * Usage
   ```sh
   cd '.\Daily\'
-  FFT_trigfit_con.py
+  FFT_trigfit_con.ipynb
   ```
 
 
@@ -27,9 +27,14 @@ Revised CDP strategy for US stock
 * Usage
   ```sh
   cd '.\Daily\'
-  CDP_tech_test.ipynb
+  CDP_output_version.ipynb
+  ```
+* Output Excel
+  ```sh
+  cd '.\Database\CDPs\SP500_3_6_9_12months_ago'
   ```
 
+分別用return/price_std/股價最高最低差價/勝率等 為過濾指標，找出下個時間段應該選入執行CDP的股票。
 ### Daily
 Daily update of zacksRank rank base on zacks-api, which is located at Database/signals.json
 * Usage
