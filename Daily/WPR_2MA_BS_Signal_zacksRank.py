@@ -172,8 +172,7 @@ def mains_signals_update(loops = ["NYSE", "NASDAQ", "SP500"]):
         ks = json.load(f)
     ks[time] = {"buy": all_signals_buy, "sell": all_signals_sell} 
     with open("../Database/signals.json", "w") as f:
-        json.dump(ks, f , indent=4)
-
+        json.dump(ks, f , indent=4) 
     print("Sell: ", sell_of_the_day)
     print("Buy: ", buy_of_the_day)
     print("Hold: ", hold_but_signal)
